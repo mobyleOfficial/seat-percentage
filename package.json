@@ -1,0 +1,21 @@
+{
+  "name": "ingresso-seat-percentage",
+  "description": "Chrome & Firefox extension — room occupancy above each session time on ingresso.com",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/test-seat-percentage.mjs && node scripts/test-extension.mjs && node scripts/test-extension-firefox.mjs",
+    "test:chrome": "node scripts/test-extension.mjs",
+    "test:firefox": "node scripts/test-extension-firefox.mjs",
+    "test:unit": "node scripts/test-seat-percentage.mjs",
+    "test:dump-fixture": "node scripts/dump-ingresso-fixture.mjs",
+    "package": "node scripts/package-extension.mjs",
+    "release-notes": "node scripts/release-notes.mjs"
+  },
+  "devDependencies": {
+    "chrome-webstore-upload-cli": "^3.3.0",
+    "geckodriver": "^6.1.1",
+    "playwright": "^1.62.1",
+    "selenium-webdriver": "^4.47.0",
+    "web-ext": "^10.6.0"
+  }
+}

@@ -1,0 +1,114 @@
+/* ── Seat occupancy above session times ──────────────────────────────── */
+
+.isp-occ-host {
+  position: relative !important;
+  margin-top: 16px !important;
+}
+
+.isp-occ {
+  position: absolute !important;
+  left: 2px !important;
+  right: 2px !important;
+  top: -15px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  pointer-events: none !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  /* Below 50%: ingresso's own blue (light tint for text, accent for the bar) */
+  --isp-occ-text: #98aaec;
+  --isp-occ-color: #3255e2;
+}
+
+.isp-occ[data-level="medium"] { --isp-occ-text: #f59e0b; --isp-occ-color: #f59e0b; }
+.isp-occ[data-level="high"] { --isp-occ-text: #ef4444; --isp-occ-color: #ef4444; }
+
+.isp-occ-num {
+  color: var(--isp-occ-text) !important;
+  flex-shrink: 0 !important;
+}
+
+.isp-occ-bar {
+  flex: 1 !important;
+  height: 4px !important;
+  border-radius: 2px !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  overflow: hidden !important;
+}
+
+.isp-occ-fill {
+  display: block !important;
+  height: 100% !important;
+  background: var(--isp-occ-color) !important;
+}
+
+/* Loading: shimmering bar and a placeholder number until the seat map arrives */
+
+.isp-occ[data-state="loading"] .isp-occ-num {
+  width: 18px !important;
+  height: 8px !important;
+  border-radius: 2px !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.isp-occ[data-state="loading"] .isp-occ-fill {
+  width: 40% !important;
+  background: rgba(255, 255, 255, 0.35) !important;
+  animation: isp-occ-shimmer 1.1s ease-in-out infinite !important;
+}
+
+@keyframes isp-occ-shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(250%); }
+}
+
+.isp-occ[data-state="unavailable"] .isp-occ-num {
+  color: rgba(240, 240, 240, 0.4) !important;
+}
+
+.isp-occ-retry {
+  display: none !important;
+}
+
+/* Error: a retry control in place of the number; the only clickable part */
+
+.isp-occ[data-state="error"] .isp-occ-num {
+  display: none !important;
+}
+
+.isp-occ[data-state="error"] .isp-occ-retry {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  order: -1 !important;
+  flex-shrink: 0 !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin: -3px 0 !important;
+  padding: 0 !important;
+  border-radius: 3px !important;
+  color: #ef4444 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.isp-occ-retry:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.isp-occ-retry:focus-visible {
+  outline: 1px solid #ef4444 !important;
+  outline-offset: 1px !important;
+}
+
+.isp-occ-retry svg {
+  width: 11px !important;
+  height: 11px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .isp-occ[data-state="loading"] .isp-occ-fill { animation: none !important; }
+}

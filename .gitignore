@@ -1,0 +1,30 @@
+# Unused legacy files
+popup.html
+popup.js
+popup.css
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Claude
+.claude/
+
+# Playwright (local screenshot capture)
+.playwright-profile/
+.playwright-profile-*/
+.test-extension-firefox/
+.playwright-firefox-profile-tests-system/
+.playwright-firefox-profile-tests/
+.playwright-firefox-profile-tests-pre/
+web-ext-artifacts/
+node_modules/
+
+# CI package output
+dist/
