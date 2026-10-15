@@ -61,4 +61,4 @@ Os workflows de publicação exigem os secrets `CHROME_*` e `FIREFOX_JWT_*` do *
 
 ## Licença
 
-[MIT](LICENSE) — Edson Yudi Toma
+[MIT](LICENSE) — Bruno Bacelar Abe
